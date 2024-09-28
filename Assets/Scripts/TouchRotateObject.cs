@@ -32,7 +32,7 @@ public class TouchRotateAndSmoothZoomObject : MonoBehaviour
             if (touch.phase == TouchPhase.Moved)
             {
                 // Si on déplace le doigt, on active la rotation
-                viewerScript.SetRotating(true);
+                // viewerScript.SetRotating(true);
                 isRotating = true;
 
                 // Calculer la différence de position par rapport à la dernière frame
@@ -49,14 +49,14 @@ public class TouchRotateAndSmoothZoomObject : MonoBehaviour
             else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {
                 // Si le toucher se termine, désactiver la rotation
-                viewerScript.SetRotating(false);
+                // viewerScript.SetRotating(false);
                 isRotating = false;
             }
         }
         // Gestion du zoom avec deux doigts
         else if (Input.touchCount == 2)
         {
-            viewerScript.SetRotating(false); // Lorsque la rotation se termine
+            // viewerScript.SetRotating(false); // Lorsque la rotation se termine
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
 
@@ -78,7 +78,7 @@ public class TouchRotateAndSmoothZoomObject : MonoBehaviour
         {
             if (isRotating)
             {
-                viewerScript.SetRotating(false); // Lorsque la rotation se termine
+                // viewerScript.SetRotating(false); // Lorsque la rotation se termine
                 isRotating = false;
             }
         }
@@ -102,7 +102,7 @@ public class TouchRotateAndSmoothZoomObject : MonoBehaviour
     public void DisableRotation()
     {
         isRotating = false; // Désactive la rotation
-        viewerScript.SetRotating(false); // Met à jour l'état de rotation dans le script principal
+        // viewerScript.SetRotating(false); // Met à jour l'état de rotation dans le script principal
     }
 
     // Méthode pour activer la rotation de l'objet
