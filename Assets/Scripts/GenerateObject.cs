@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GenerateObject : MonoBehaviour
@@ -9,136 +10,141 @@ public class GenerateObject : MonoBehaviour
     [System.Serializable]
     public class ObjectInfo
     {
-        public Transform object3D;  // Référence à l'objet 3D
-        public Sprite imageObject3D;  // Référence à l'image de l'objet
-        [TextArea] public string description;  // Description de l'objet
+        public string name;
+        [TextArea] public string description;
+        public Sprite image;  // Pour stocker l'image
+        public Transform object3D;  // Non utilisé dans ce cas, mais peut être utilisé pour autre chose
 
-        // Stocker la position et la rotation initiales
         [HideInInspector] public Vector3 initialPosition;
         [HideInInspector] public Quaternion initialRotation;
     }
 
     public ObjectInfo[] objects;  // Liste d'objets avec image et description
+    public int maxLines = 3; // Nombre maximal de lignes visibles pour TextDes
 
-    public GameObject InstantiateGameObject; // GameObject déjà initialisé dans la scène
+    public GameObject UIObjectList;
+    public GameObject UIObjectViewer3D;
 
-    public GameObject parentContent;
-    public GameObject UIMuseeNumerique;
-    public GameObject UIDecouvrir;
+    public GameObject prefab;  // Le prefab à utiliser
+    public Transform parent;
 
     static public int index;
 
-    // Start is called before the first frame update
     void Start()
     {
-        if (InstantiateGameObject == null)
-        {
-            Debug.LogError("Le GameObject initialisé n'est pas assigné.");
-            return;
-        }
-
-        Vector3 initialPosition = InstantiateGameObject.GetComponent<RectTransform>().anchoredPosition;
-
+        // Parcourt chaque élément de la liste et l'instancie
         for (int i = 0; i < objects.Length; i++)
         {
-            // Créer une copie du GameObject initialisé sous parentContent
-            GameObject newObject = Instantiate(InstantiateGameObject, parentContent.transform);
+            ObjectInfo element = objects[i];
 
-            // Appliquer la nouvelle position (si nécessaire)
-            Vector3 newPosition = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z);
-            newObject.GetComponent<RectTransform>().anchoredPosition = newPosition;
+            // Instancier le prefab
+            GameObject instance = Instantiate(prefab, parent);
 
-            // Mettre à jour l'image et la description
-            UpdateChildImage(newObject.transform, "ImageObject", objects[i].imageObject3D);
-            UpdateChildText(newObject.transform, "TextDescription", objects[i].description);
+            // 1er enfant : Mettre le nom dans le composant TextMeshPro "TextName"
+            TextMeshProUGUI textName = instance.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
+            textName.text = element.name;
 
-            // Récupérer et assigner l'index au bouton BtnDecouvrir
-            AssignButtonListener(newObject.transform, "BtnDecouvrir", i);
-        }
-    }
+            // 2ème enfant : Mettre l'image dans le composant Image "Image"
+            Image imageComponent = instance.transform.Find("Image").GetComponent<Image>();
+            imageComponent.sprite = element.image;
 
-    // Méthode pour mettre à jour le texte d'un enfant
-    void UpdateChildText(Transform parent, string childName, string newText)
-    {
-        foreach (Transform child in parent.GetComponentsInChildren<Transform>(true))
-        {
-            if (child.name == childName)
+            // 3ème enfant : Mettre le nom et la description dans le ContentText, gérer le bouton TextLink
+            Transform contentText = instance.transform.Find("ContentText");
+
+            // Mettre le nom dans "TextName" enfant de "ContentText"
+            TextMeshProUGUI contentTextName = contentText.Find("TextName").GetComponent<TextMeshProUGUI>();
+            contentTextName.text = element.name;
+
+            // Mettre la description dans "TextDes" enfant de "ContentText"
+            TextMeshProUGUI contentTextDes = contentText.Find("TextDes").GetComponent<TextMeshProUGUI>();
+            contentTextDes.text = element.description;
+
+            // Récupérer le bouton "3D" de "ContentText"
+            Button button3D = contentText.Find("3D").GetComponent<Button>();
+
+            // Ajouter un listener pour appeler une fonction avec l'index de l'élément
+            int currentIndex = i;  // Capture de la valeur actuelle de l'index
+            button3D.onClick.AddListener(() => OnButtonClicked(currentIndex));
+
+            // Gérer le bouton "TextLink" qui va afficher "ImageOmbre"
+            Button textLinkButton = contentText.Find("TextLink").GetComponent<Button>();
+            GameObject imageOmbre = instance.transform.Find("ImageOmbre").gameObject;
+
+            textLinkButton.onClick.AddListener(() =>
             {
-                TextMeshProUGUI textComponent = child.GetComponent<TextMeshProUGUI>();
-                if (textComponent != null)
-                {
-                    textComponent.text = newText;
-                }
-                else
-                {
-                    Debug.LogError($"TextMeshProUGUI n'est pas trouvé sur le GameObject '{childName}'.");
-                }
-                break; // Sortir de la boucle après avoir trouvé et mis à jour l'élément
-            }
-        }
-    }
+                imageOmbre.SetActive(true);  // Activer l'image ombre au clic sur le bouton
+            });
 
-    // Méthode pour mettre à jour l'image d'un enfant
-    void UpdateChildImage(Transform parent, string childName, Sprite newImage)
-    {
-        foreach (Transform child in parent.GetComponentsInChildren<Transform>(true))
-        {
-            if (child.name == childName)
+            // 4ème enfant : "ImageOmbre" qui est désactivé de base
+            // Remplir les informations dans les enfants de "ImageOmbre"
+            Transform imageOmbreTransform = imageOmbre.transform;
+
+            // Mettre le nom dans "TextName" enfant de "ImageOmbre"
+            TextMeshProUGUI imageOmbreTextName = imageOmbreTransform.Find("TextName").GetComponent<TextMeshProUGUI>();
+            imageOmbreTextName.text = element.name;
+
+            // Récupérer le contenu du `ScrollView` dans "ImageOmbre" pour le texte de la description
+            Transform scrollViewContent = imageOmbreTransform.Find("Scroll View/Viewport/Content");
+
+            // Mettre la description dans "TextDes" enfant du contenu du `ScrollView`
+            TextMeshProUGUI imageOmbreTextDes = scrollViewContent.Find("TextDes").GetComponent<TextMeshProUGUI>();
+            imageOmbreTextDes.text = element.description;
+
+            // Gérer le bouton "ImageButton" dans "ImageOmbre" pour le désactiver
+            Button imageButton = imageOmbreTransform.Find("ImageButton").GetComponent<Button>();
+            imageButton.onClick.AddListener(() =>
             {
-                Image imageComponent = child.GetComponent<Image>();
-                if (imageComponent != null)
-                {
-                    imageComponent.sprite = newImage;
-                }
-                else
-                {
-                    Debug.LogError($"Image n'est pas trouvé sur le GameObject '{childName}'.");
-                }
-                break; // Sortir de la boucle après avoir trouvé et mis à jour l'élément
-            }
-        }
-    }
+                imageOmbre.SetActive(false);  // Désactiver "ImageOmbre" au clic sur le bouton
+            });
 
-    // Méthode pour récupérer le bouton et lui ajouter un listener
-    void AssignButtonListener(Transform parent, string buttonName, int index)
-    {
-        foreach (Transform child in parent.GetComponentsInChildren<Transform>(true))
+            // Désactiver "ImageOmbre" au départ
+            imageOmbre.SetActive(false);
+        }
+
+
+        // Fonction appelée lors du clic sur le bouton "3D", avec l'index de l'élément
+        void OnButtonClicked(int indexx)
         {
-            if (child.name == buttonName)
-            {
-                Button buttonComponent = child.GetComponent<Button>();
-                if (buttonComponent != null)
-                {
-                    // Ajouter un listener au bouton qui accède à la page en fonction de l'index
-                    buttonComponent.onClick.AddListener(() => OnButtonClick(index));
-                }
-                else
-                {
-                    Debug.LogError($"Button n'est pas trouvé sur le GameObject '{buttonName}'.");
-                }
-                break; // Sortir de la boucle après avoir trouvé et assigné le listener
-            }
+            index = indexx;
+            Debug.Log("Bouton 3D cliqué pour l'élément d'index : " + index);
+
+            // Activer l'objet actuel
+            objects[index].object3D.gameObject.SetActive(true);
+
+            UIObjectViewer3D.SetActive(true);
+            UIObjectList.SetActive(false);
         }
     }
 
-    // Cette méthode sera appelée lorsque le bouton est cliqué
-    void OnButtonClick(int indexValue)
+    public void OnButtonReturnClick()
     {
-        index = indexValue;
-        Debug.Log("Bouton cliqué pour l'objet à l'index : " + indexValue);
+        // Vérifie si l'UIObjectViewer3D est actif
+        if (UIObjectViewer3D.activeSelf)
+        {
+            for (int i = 0; i < objects.Length; i++)
+            {
+                // Désactiver l'objet 3D
+                objects[i].object3D.gameObject.SetActive(false);
+            }
 
-        // Activer l'objet actuel
-        objects[index].object3D.gameObject.SetActive(true);
-
-        UIMuseeNumerique.gameObject.SetActive(false);
-        UIDecouvrir.gameObject.SetActive(true);
-        // Navigue vers une nouvelle page ou exécute une action basée sur l'index
-        // Exemple : Charger une nouvelle scène ou afficher plus de détails
-        // SceneManager.LoadScene("NomDeLaScene");  // Si tu veux charger une nouvelle scène
+            // Si oui, désactive UIObjectViewer3D et active UIObjectList
+            UIObjectViewer3D.SetActive(false);
+            UIObjectList.SetActive(true);
+        }
+        else if (UIObjectList.activeSelf)
+        {
+            // Si UIObjectList est déjà actif, charge la nouvelle scène
+            SceneManager.LoadScene("HomeScreen");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GoToAR()
     {
+        for (int i = 0; i < objects.Length; i++)
+        {
+            // Désactiver l'objet actuel
+            objects[i].object3D.gameObject.SetActive(false);
+        }
+        SceneManager.LoadScene("ARScreen");
     }
 }

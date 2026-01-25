@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ObjectViewerWithDescriptionsMobile : MonoBehaviour
 {
-    public TMP_Text descriptionText;  // UI Text pour afficher la description
+    // public TMP_Text descriptionText;  // UI Text pour afficher la description
 
     private int currentIndex;  // Index de l'objet actuellement affiché
     // private Vector2 startTouchPosition;  // Position de départ du toucher pour le swipe
@@ -127,7 +127,7 @@ public class ObjectViewerWithDescriptionsMobile : MonoBehaviour
         generateObjectScript.objects[index].object3D.gameObject.SetActive(true);
 
         // Mettre à jour la description de l'objet
-        descriptionText.text = generateObjectScript.objects[index].description;
+        // descriptionText.text = generateObjectScript.objects[index].description;
 
         // Réinitialiser la position et la rotation de l'objet à leur état initial
         generateObjectScript.objects[index].object3D.position = generateObjectScript.objects[index].initialPosition;

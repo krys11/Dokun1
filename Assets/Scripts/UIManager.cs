@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -120,6 +121,11 @@ public class UIManager : MonoBehaviour
     public void QuitUIPanel()
     {
         CloseMenu(UIPanel);
+    }
+
+    public void LoadARScene()
+    {
+        SceneManager.LoadScene("ObjectAR");
     }
 
     // Méthode pour désactiver tous les objets 3D et réinitialiser leur position et rotation

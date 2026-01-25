@@ -40,11 +40,11 @@ public class TouchRotateAndSmoothZoomObject : MonoBehaviour
 
                 // Appliquer une rotation horizontale et verticale en fonction du mouvement du doigt
                 float horizontalRotation = deltaTouch.x * rotationSpeed;
-                float verticalRotation = deltaTouch.y * rotationSpeed;
+                // float verticalRotation = deltaTouch.y * rotationSpeed;
 
                 // Appliquer la rotation à l'objet
                 transform.Rotate(Vector3.up, -horizontalRotation, Space.World); // Rotation horizontale (axe Y global)
-                transform.Rotate(Vector3.right, verticalRotation, Space.Self);  // Rotation verticale (axe X local)
+                // transform.Rotate(Vector3.right, verticalRotation, Space.Self);  // Rotation verticale (axe X local)
             }
             else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {
@@ -54,26 +54,26 @@ public class TouchRotateAndSmoothZoomObject : MonoBehaviour
             }
         }
         // Gestion du zoom avec deux doigts
-        else if (Input.touchCount == 2)
-        {
-            // viewerScript.SetRotating(false); // Lorsque la rotation se termine
-            Touch touchZero = Input.GetTouch(0);
-            Touch touchOne = Input.GetTouch(1);
+        // else if (Input.touchCount == 2)
+        // {
+        //     // viewerScript.SetRotating(false); // Lorsque la rotation se termine
+        //     Touch touchZero = Input.GetTouch(0);
+        //     Touch touchOne = Input.GetTouch(1);
 
-            // Calculer la position précédente des touches pour chaque doigt
-            Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
-            Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+        //     // Calculer la position précédente des touches pour chaque doigt
+        //     Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+        //     Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
 
-            // Calculer la distance entre les deux touches cette frame et la précédente
-            float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
-            float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
+        //     // Calculer la distance entre les deux touches cette frame et la précédente
+        //     float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+        //     float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
 
-            // Calculer la différence de distance entre les deux frames
-            float difference = currentMagnitude - prevMagnitude;
+        //     // Calculer la différence de distance entre les deux frames
+        //     float difference = currentMagnitude - prevMagnitude;
 
-            // Appliquer le zoom en modifiant l'échelle de l'objet
-            ZoomObject(difference * zoomSpeed);
-        }
+        //     // Appliquer le zoom en modifiant l'échelle de l'objet
+        //     ZoomObject(difference * zoomSpeed);
+        // }
         else
         {
             if (isRotating)

@@ -1,0 +1,279 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5426696493886173607
+  m_GuidHigh: 10550519972450927269
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5511722442359839795
+      m_GuidHigh: 6217816865204970637
+    m_SerializedTextureGuid:
+      m_GuidLow: 16062436749606464197
+      m_GuidHigh: 10853451749621202008
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: metre2
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5286007455050182088
+      m_GuidHigh: 15979927309482919077
+    m_SerializedTextureGuid:
+      m_GuidLow: 2190776928959336875
+      m_GuidHigh: 11334107154214694363
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: 3m
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5505020879008609096
+      m_GuidHigh: 15794862112571705772
+    m_SerializedTextureGuid:
+      m_GuidLow: 14307359197538943437
+      m_GuidHigh: 18277503528332941210
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: "B\xE2tonDanceGu\xE8rri\xE8re"
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5540821575463926628
+      m_GuidHigh: 3084352533909405367
+    m_SerializedTextureGuid:
+      m_GuidLow: 13230342472727260594
+      m_GuidHigh: 13705901658616808778
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: "B\xE2ton_dance_gu\xE8rri\xE8re_3"
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4644783648119210313
+      m_GuidHigh: 12820452329075815848
+    m_SerializedTextureGuid:
+      m_GuidLow: 10539881674760734803
+      m_GuidHigh: 8705395632760470011
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: "Calebasse_\xE0_couvercle"
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5575207594049185126
+      m_GuidHigh: 3686339525574234756
+    m_SerializedTextureGuid:
+      m_GuidLow: 14963323002319648825
+      m_GuidHigh: 14281227729823509338
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Homme_lion
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5191170344550159574
+      m_GuidHigh: 349075854191587244
+    m_SerializedTextureGuid:
+      m_GuidLow: 9617806136802988529
+      m_GuidHigh: 10975091524729235866
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: sac
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5138426812157788145
+      m_GuidHigh: 14510825245790810268
+    m_SerializedTextureGuid:
+      m_GuidLow: 11657653243364075976
+      m_GuidHigh: 10205853212661503032
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Tabouret_Royal
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4805973172820510362
+      m_GuidHigh: 15193836042126067604
+    m_SerializedTextureGuid:
+      m_GuidLow: 16270241798979715950
+      m_GuidHigh: 2508612649731818459
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: "Tr\xF4ne_du_roi_Gl\xE8l\xE8"
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5531719193593020342
+      m_GuidHigh: 10017632583017421968
+    m_SerializedTextureGuid:
+      m_GuidLow: 2486140027842110068
+      m_GuidHigh: 6063005624107268761
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: "Tr\xF4ne_roi_Gh\xE9zo"
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5670066168782446464
+      m_GuidHigh: 7506140397467602846
+    m_SerializedTextureGuid:
+      m_GuidLow: 15344951076093759049
+      m_GuidHigh: 1011273876223705499
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: BlancNoirRougePortail
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5525209040374809741
+      m_GuidHigh: 15674651015250555536
+    m_SerializedTextureGuid:
+      m_GuidLow: 16101616663057355255
+      m_GuidHigh: 14522421369503351064
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: MarronPortail
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5671969353710572645
+      m_GuidHigh: 8219807703839278001
+    m_SerializedTextureGuid:
+      m_GuidLow: 16007265822356002119
+      m_GuidHigh: 1009829593033716152
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: RougeNoirPortail
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5604127083948702210
+      m_GuidHigh: 16961159031596332962
+    m_SerializedTextureGuid:
+      m_GuidLow: 12479834991067704661
+      m_GuidHigh: 10378496791058312794
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Tunique
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4728682755190190140
+      m_GuidHigh: 7301509082423053447
+    m_SerializedTextureGuid:
+      m_GuidLow: 13605738512588666661
+      m_GuidHigh: 17241204321075501243
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: sen
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5194050357153664944
+      m_GuidHigh: 17870185965482817411
+    m_SerializedTextureGuid:
+      m_GuidLow: 4194329788446385670
+      m_GuidHigh: 6204633024392200810
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: requin
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5219383218500073481
+      m_GuidHigh: 12976419139853014967
+    m_SerializedTextureGuid:
+      m_GuidLow: 4310802566485579418
+      m_GuidHigh: 9322620626869922009
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Pantalon
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5390869251001496175
+      m_GuidHigh: 9864648689381250973
+    m_SerializedTextureGuid:
+      m_GuidLow: 18043512167690164950
+      m_GuidHigh: 14519977060620261352
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: "m\xE9tier_tisser"
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4903135340048406090
+      m_GuidHigh: 13010325040413879207
+    m_SerializedTextureGuid:
+      m_GuidLow: 67777382648237316
+      m_GuidHigh: 10215452108091192027
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: axcvb
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5114813373540128618
+      m_GuidHigh: 7203791939864131202
+    m_SerializedTextureGuid:
+      m_GuidLow: 2789190691308953321
+      m_GuidHigh: 15597788815345891192
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: "Dance_gu\xE8rri\xE8re_2"
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4944018898482279587
+      m_GuidHigh: 6253915222318480000
+    m_SerializedTextureGuid:
+      m_GuidLow: 15439198901268009955
+      m_GuidHigh: 6059014545586492088
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: zlut
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4694938566681287621
+      m_GuidHigh: 13750232931596550570
+    m_SerializedTextureGuid:
+      m_GuidLow: 6600999354587595705
+      m_GuidHigh: 5943511833739987017
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: fuseau
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5275124312481423374
+      m_GuidHigh: 6459773244787513984
+    m_SerializedTextureGuid:
+      m_GuidLow: 13025802172111542741
+      m_GuidHigh: 14271432450755852841
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: portail
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5169260751087286882
+      m_GuidHigh: 1550230063730979477
+    m_SerializedTextureGuid:
+      m_GuidLow: 5029213194945943124
+      m_GuidHigh: 16581216528461589675
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Yao3
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5488817218876131368
+      m_GuidHigh: 2814942127925332354
+    m_SerializedTextureGuid:
+      m_GuidLow: 13970721018677943292
+      m_GuidHigh: 2757527004256599208
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: fyll4
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5215218031609877616
+      m_GuidHigh: 9095954697470706820
+    m_SerializedTextureGuid:
+      m_GuidLow: 669484210480161623
+      m_GuidHigh: 8274740607521337656
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: TropCANA
+    m_Texture: {fileID: 0}

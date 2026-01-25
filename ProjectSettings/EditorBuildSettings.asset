@@ -6,10 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SamplesResources/Scenes/0-Main.unity
-    guid: a09cb257d566c489595b16ab37547666
+    path: Assets/Scenes/SplashScreen.unity
+    guid: 81ff2b019e9d6d070a3770d88ec5259f
+  - enabled: 1
+    path: Assets/Scenes/HomeScreen.unity
+    guid: 1b6bf93bb4dbb6917a2a45f09a30172c
+  - enabled: 1
+    path: Assets/Scenes/GuideScreen.unity
+    guid: dfcfb43171d44e8adae73954875f72e5
+  - enabled: 1
+    path: Assets/Scenes/MuseVirtuelScreen.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/ARScreen.unity
+    guid: 45cc13561a595161581a917d5458bc92
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 39db406ed8c01d4e5a0d9bcc18a58e74,
+      type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 521f3d3433f126c86b24c9b83cb98b73,
+      type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: c1fef6724b3cbb482b020df8113260b1,
       type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: f53d2b089d8e257e0ade060e4d8c1ebd,
       type: 2}
